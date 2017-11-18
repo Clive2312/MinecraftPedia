@@ -1,16 +1,12 @@
 <template>
-<el-container>
-  <el-header>
-    <div class="el-header">
-      <img :src="logo">
-      <a>Wiki</a>
-    </div>
-  </el-header>
-</el-container>
+  <div class="header">
+    <img :src="logo">
+    <a>Wiki</a>
+  </div>
 </template>
 
 <script>
-import logo from '../assets/Minecraft_Logo.png'
+import logo from '../assets/Logo_MC.png'
 export default {
   name: 'header',
   data () {
@@ -22,28 +18,28 @@ export default {
 </script>
 
 <style>
-.el-header {
+.header {
   background-color: #000000;
   background: url('../assets/header.png')top fixed;
   width: 100%;
-  height: 360px;
+  height: 100px;
   color: #333;
   text-align: center;
   line-height: 60px;
 }
 
-.el-header a {
+.header a {
   position: absolute;
-  left: 320px;
-  top: 8px;
-  font-size: 30px;
+  left: 420px;
+  top: 20px;
+  font-size: 45px;
   font-family: Helvetica;
   color: #FFFFFF;
 }
 
-.el-header img {
+.header img {
   position: absolute;
   left: 20px;
-  top: 5px;
+  top: 10px;
 }
 </style>
