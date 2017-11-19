@@ -7,7 +7,9 @@
         <img :src="logo">
       </el-col>
       <el-col :span="6">
-        <div class="grid-content bg-purple"></div>
+        <div class="grid-content bg-purple">
+          <a>Wiki</a>
+        </div>
       </el-col>
       <el-col :span="6">
         <div class="grid-content bg-purple">
@@ -30,7 +32,7 @@
     </el-row>
   </div>
 
-  <el-carousel :interval="4000" type="card" height="460px">
+  <el-carousel :interval="4000" type="card" height="440px">
     <el-carousel-item v-for="(item, index) in banners" :key="index">
       <img :src="item.imgUrl">
     </el-carousel-item>
@@ -202,11 +204,12 @@ export default {
   line-height: 60px;
 }
 
-.myheader a {
-
+.myheader a{
+  margin-left: 10px;
+  margin-top: 10px;
   font-size: 45px;
   font-family: Helvetica;
-  color: #FFFFFF;
+  color: rgba(0,0,0,0);
 }
 
 .myheader img {
