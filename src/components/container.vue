@@ -11,30 +11,31 @@
       </el-col>
       <el-col :span="6">
         <div class="grid-content bg-purple">
-      </div>
+        </div>
       </el-col>
       <el-col :span="4">
-          <el-row class="demo-autocomplete">
-            <el-col :span="25">
-              <el-autocomplete class="inline-input" v-model="state2" :fetch-suggestions="querySearch" placeholder="Infinite World! xD" :trigger-on-focus="false" @select="handleSelect"></el-autocomplete>
-            </el-col>
-          </el-row>
+        <el-row class="demo-autocomplete">
+          <el-col :span="25">
+            <el-autocomplete class="inline-input" v-model="state2" :fetch-suggestions="querySearch" placeholder="Infinite World! xD" :trigger-on-focus="false" @select="handleSelect"></el-autocomplete>
+          </el-col>
+        </el-row>
       </el-col>
       <el-col :span="2">
         <div class="grid-content bg-purple">
           <div class="searchButton">
-        <el-button type="primary" icon="el-icon-search" @click="open">Search</el-button>
-      </div>
-      </div>
+            <el-button type="primary" icon="el-icon-search" @click="open">Search</el-button>
+          </div>
+        </div>
       </el-col>
     </el-row>
   </div>
 
-  <el-carousel :interval="4000" type="card" height="440px">
+  <el-carousel :interval="4000" type="card" height="460px">
     <el-carousel-item v-for="(item, index) in banners" :key="index">
       <img :src="item.imgUrl">
     </el-carousel-item>
   </el-carousel>
+
   <el-main>
     <el-row>
       <el-col v-for="(item, index) in boxes1" :key="index" :span="item.span">
@@ -62,7 +63,7 @@
 </template>
 
 <script>
-import logo from '../assets/Logo_MC.png'
+import logo from '../assets/logo.svg'
 import pic1 from '../assets/1.jpg'
 import pic2 from '../assets/2.jpg'
 import pic3 from '../assets/3.png'
@@ -77,55 +78,55 @@ import steve from '../assets/steve1.png'
 import pig from '../assets/pig.png'
 export default {
   name: 'container',
-  data() {
+  data () {
     return {
       currentDate: new Date(),
       logo,
       steve,
       pig,
       boxes1: [{
-          imgUrl: steve,
-          span: 6,
-          tag: "Steve",
-          message: "I see the player you mean...",
-          link: "https://minecraft.gamepedia.com/The_Player"
-        },
-        {
-          imgUrl: pic02,
-          span: 12,
-          tag: "Hours of Towers",
-          message: "Four New Captivating Creations Come to Java Realms!",
-          link: "https://minecraft.net/zh-hans/article/new-java-realms-hours-towers"
-        },
-        {
-          imgUrl: pic01,
-          span: 6,
-          tag: "MineCon Skins",
-          message: "Official skins for MineCon!",
-          link: "https://minecraft.net/zh-hans/article/slip-some-minecon-skins"
-        },
-        {
-          imgUrl: pic03,
-          span: 12,
-          tag: "Free MineCon Stuff On Marketplace!",
-          message: "Pick up MINECON skins, party parrots and a planet for nothing!",
-          link: "https://minecraft.net/zh-hans/article/free-minecon-stuff-marketplace"
-        },
-        {
-          imgUrl: pic04,
-          span: 6,
-          tag: "MineCon Earth",
-          message: "Everything you need to know!",
-          link: "https://minecraft.net/zh-hans/article/one-week-until-minecon-earth"
-        },
-        {
-          imgUrl: pig,
-          span: 6,
-          tag: "Pig",
-          message: "Steve's friend in Minecraft.",
-          link: "https://minecraft.gamepedia.com/Pig"
-        }
-      ],
+        imgUrl: steve,
+        span: 6,
+        tag: 'Steve',
+        message: 'I see the player you mean...',
+        link: 'https://minecraft.gamepedia.com/The_Player'
+      },
+      {
+        imgUrl: pic02,
+        span: 12,
+        tag: 'Hours of Towers',
+        message: 'Four New Captivating Creations Come to Java Realms!',
+        link: 'https://minecraft.net/zh-hans/article/new-java-realms-hours-towers'
+      },
+      {
+        imgUrl: pic01,
+        span: 6,
+        tag: 'MineCon Skins',
+        message: 'Official skins for MineCon!',
+        link: 'https://minecraft.net/zh-hans/article/slip-some-minecon-skins'
+      },
+      {
+        imgUrl: pic03,
+        span: 12,
+        tag: 'Free MineCon Stuff On Marketplace!',
+        message: 'Pick up MINECON skins, party parrots and a planet for nothing!',
+        link: 'https://minecraft.net/zh-hans/article/free-minecon-stuff-marketplace'
+      },
+      {
+        imgUrl: pic04,
+        span: 6,
+        tag: 'MineCon Earth',
+        message: 'Everything you need to know!',
+        link: 'https://minecraft.net/zh-hans/article/one-week-until-minecon-earth'
+      },
+      {
+        imgUrl: pig,
+        span: 6,
+        tag: "Pig",
+        message: "Steve's friend in Minecraft.",
+        link: "https://minecraft.gamepedia.com/Pig"
+      }
+    ],
       banners: [{
           imgUrl: pic1
         },
@@ -151,9 +152,9 @@ export default {
     };
   },
   methods: {
-    open() {
-        this.$message('Still to be done...');
-      },
+    open () {
+      this.$message('Still to be done...');
+    },
     querySearch(queryString, cb) {
       var Mines = this.Mines;
       var results = queryString ? Mines.filter(this.createFilter(queryString)) : Mines;
@@ -165,7 +166,7 @@ export default {
         return (Mines.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
       };
     },
-    loadAll() {
+    loadAll () {
       return [{
           "value": "Minecraft",
           "address": "Minecraft Official Website"
@@ -180,10 +181,10 @@ export default {
       console.log(item);
     }
   },
-  mounted() {
+  mounted () {
     this.Mines = this.loadAll();
   },
-  jump(item) {
+  jump (item) {
     window.location.href = item.link;
   }
 }
@@ -209,7 +210,8 @@ export default {
 }
 
 .myheader img {
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 
@@ -219,7 +221,7 @@ export default {
   size: medium;
 }
 
-.searchButton{
+.searchButton {
   margin-top: 18px;
   margin-left: 0px;
 }
@@ -231,6 +233,7 @@ export default {
 }
 
 .el-carousel img {
+  margin-top: 20px;
   width: 100%;
   height: 100%;
 }
@@ -306,7 +309,7 @@ export default {
 }
 
 .bg-purple {
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .grid-content {
