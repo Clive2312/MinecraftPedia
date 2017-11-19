@@ -1,14 +1,35 @@
 <template>
 <el-container>
-  <div class="header">
-    <img :src="logo">
-    <a>Wiki</a>
-    <el-row class="demo-autocomplete">
-      <el-col :span="25">
-        <el-autocomplete class="inline-input" v-model="state2" :fetch-suggestions="querySearch" placeholder="Search" :trigger-on-focus="false" @select="handleSelect"></el-autocomplete>
+
+  <div class="myheader">
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <img :src="logo">
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :span="6">
+        <div class="grid-content bg-purple">
+      </div>
+      </el-col>
+      <el-col :span="4">
+          <el-row class="demo-autocomplete">
+            <el-col :span="25">
+              <el-autocomplete class="inline-input" v-model="state2" :fetch-suggestions="querySearch" placeholder="Infinite World! xD" :trigger-on-focus="false" @select="handleSelect"></el-autocomplete>
+            </el-col>
+          </el-row>
+      </el-col>
+      <el-col :span="2">
+        <div class="grid-content bg-purple">
+          <div class="searchButton">
+        <el-button type="primary" icon="el-icon-search" @click="open">Search</el-button>
+      </div>
+      </div>
       </el-col>
     </el-row>
   </div>
+
   <el-carousel :interval="4000" type="card" height="440px">
     <el-carousel-item v-for="(item, index) in banners" :key="index">
       <img :src="item.imgUrl">
@@ -23,7 +44,9 @@
             <span>{{item.tag}}</span>
             <div class="bottom clearfix">
               {{item.message}}
-              <a :href="item.link"><el-button type="text" class="button">Click for more</el-button></a>
+              <a :href="item.link">
+                <el-button type="text" class="button">Click for more</el-button>
+              </a>
             </div>
           </div>
         </el-card>
@@ -32,7 +55,7 @@
   </el-main>
   <el-footer>
     <div class="copyright">
-      Mojang © 2009-2017. "Minecraft" is a trademark of Mojang Synergies AB&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp           By Clive
+      Mojang © 2009-2017. "Minecraft" is a trademark of Mojang Synergies AB&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp By Clive
     </div>
   </el-footer>
 </el-container>
@@ -128,6 +151,9 @@ export default {
     };
   },
   methods: {
+    open() {
+        this.$message('Still to be done...');
+      },
     querySearch(queryString, cb) {
       var Mines = this.Mines;
       var results = queryString ? Mines.filter(this.createFilter(queryString)) : Mines;
@@ -141,12 +167,12 @@ export default {
     },
     loadAll() {
       return [{
-          "value": "三全鲜食（北新泾店）",
-          "address": "长宁区新渔路144号"
+          "value": "Minecraft",
+          "address": "Minecraft Official Website"
         },
         {
-          "value": "南拳妈妈龙虾盖浇饭",
-          "address": "普陀区金沙江路1699号鑫乐惠美食广场A13"
+          "value": "我的世界",
+          "address": "我的世界国服"
         }
       ];
     },
@@ -157,14 +183,14 @@ export default {
   mounted() {
     this.Mines = this.loadAll();
   },
-  jump(item){
-    window.location.href=item.link;
+  jump(item) {
+    window.location.href = item.link;
   }
 }
 </script>
 
-<style>
-.header {
+<style scoped>
+.myheader {
   background-color: #000000;
   background: url('../assets/header.png')top fixed;
 
@@ -175,29 +201,29 @@ export default {
   line-height: 60px;
 }
 
-.header a {
-  position: absolute;
-  left: 420px;
-  top: 25px;
+.myheader a {
+
   font-size: 45px;
   font-family: Helvetica;
   color: #FFFFFF;
 }
 
-.header img {
-  position: absolute;
-  left: 20px;
-  top: 15px;
+.myheader img {
+  margin-top: 5px;
 }
 
 
 .demo-autocomplete {
-  position: absolute;
-  left: 80%;
-  top: 28px;
+  margin-left: 65px;
+  margin-top: 18px;
   size: medium;
-
 }
+
+.searchButton{
+  margin-top: 18px;
+  margin-left: 0px;
+}
+
 
 .el-carousel {
 
@@ -260,7 +286,36 @@ export default {
   clear: both
 }
 
-.copyright{
-  color:#FFF
+.copyright {
+  color: #FFF
+}
+
+.el-row {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.el-col {
+  border-radius: 4px;
+}
+
+.bg-purple-dark {
+  background: #99a9bf;
+}
+
+.bg-purple {
+  background-color: rgba(0,0,0,0);
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 100px;
+}
+
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
 }
 </style>
