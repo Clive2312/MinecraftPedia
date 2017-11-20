@@ -124,70 +124,70 @@ export default {
       {
         imgUrl: pig,
         span: 6,
-        tag: "Pig",
-        message: "Steve's friend in Minecraft.",
-        link: "https://minecraft.gamepedia.com/Pig"
+        tag: 'Pig',
+        message: 'Your friend in Minecraft.',
+        link: 'https://minecraft.gamepedia.com/Pig'
       }
-    ],
+      ],
       banners: [{
-          imgUrl: pic1
-        },
-        {
-          imgUrl: pic2
-        },
-        {
-          imgUrl: pic3
-        },
-        {
-          imgUrl: pic4
-        },
-        {
-          imgUrl: pic5
-        },
-        {
-          imgUrl: pic6
-        },
+        imgUrl: pic1
+      },
+      {
+        imgUrl: pic2
+      },
+      {
+        imgUrl: pic3
+      },
+      {
+        imgUrl: pic4
+      },
+      {
+        imgUrl: pic5
+      },
+      {
+        imgUrl: pic6
+      }
       ],
       Mines: [],
       state1: '',
       state2: ''
-    };
+    }
   },
   methods: {
     open () {
-      this.$message('Still to be done...');
+      this.$message('Still to be done...')
     },
-    querySearch(queryString, cb) {
-      var Mines = this.Mines;
-      var results = queryString ? Mines.filter(this.createFilter(queryString)) : Mines;
+    querySearch (queryString, cb) {
+      var Mines = this.Mines
+      var results = queryString ? Mines.filter(this.createFilter(queryString)) : Mines
       // 调用 callback 返回建议列表的数据
-      cb(results);
+      cb(results)
     },
-    createFilter(queryString) {
+    createFilter (queryString) {
       return (Mines) => {
-        return (Mines.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
-      };
+        return (Mines.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
+      }
     },
     loadAll () {
       return [{
-          "value": "Minecraft",
-          "address": "Minecraft Official Website"
-        },
-        {
-          "value": "我的世界",
-          "address": "我的世界国服"
-        }
-      ];
+        'value': 'Minecraft',
+        'address': 'Minecraft Official Website'
+      },
+      {
+        'value': '我的世界',
+        'address': '我的世界国服'
+      }
+      ]
     },
-    handleSelect(item) {
-      console.log(item);
+    handleSelect (item) {
+      console.log(item)
     }
   },
   mounted () {
-    this.Mines = this.loadAll();
+    this.Mines = this.loadAll()
   },
   jump (item) {
-    window.location.href = item.link;
+    window.location.href = item.link
   }
 }
 </script>
